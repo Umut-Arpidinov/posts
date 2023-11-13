@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/usersFragment">
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.example.sultanposts.presentation.users.UsersFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_users" >
+        <action
+            android:id="@+id/action_usersFragment_to_postsFragment"
+            app:destination="@id/postsFragment">
+            <argument
+                android:name="user"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null"
+                />
+            <argument
+                android:name="userId"
+                app:argType="integer"
+                app:nullable="false"
+                />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.example.sultanposts.presentation.posts.PostsFragment"
+        android:label="fragment_posts"
+        tools:layout="@layout/fragment_posts" >
+        <action
+            android:id="@+id/action_postsFragment_to_detailedPostFragment"
+            app:destination="@id/detailedPostFragment">
+            <argument
+                android:name="postId"
+                app:argType="integer"
+                app:nullable="false"
+                />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/detailedPostFragment"
+        android:name="com.example.sultanposts.presentation.detailedpost.DetailedPostFragment"
+        android:label="fragment_detailed_post"
+        tools:layout="@layout/fragment_detailed_post" />
+</navigation>
