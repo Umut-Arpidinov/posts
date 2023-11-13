@@ -10,5 +10,7 @@ interface UserRemoteDataSource {
 
     fun getPosts(): Single<List<PostResponse>>
 
+    fun getPostById(postId: Int): Single<PostResponse>
+
     fun getPostsByUserId(userId: Int): Single<List<PostResponse>>
 }

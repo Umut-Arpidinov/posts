@@ -18,6 +18,10 @@ class UserRemoteDataSourceImpl @Inject constructor(
         return userApiService.getPosts()
     }
 
+    override fun getPostById(postId: Int): Single<PostResponse> {
+        return userApiService.getPostById(postId)
+    }
+
     override fun getPostsByUserId(userId: Int): Single<List<PostResponse>> {
         return userApiService.getUsersPostById(userId)
     }

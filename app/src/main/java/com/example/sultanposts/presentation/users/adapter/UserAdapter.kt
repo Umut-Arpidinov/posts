@@ -9,27 +9,35 @@ import com.example.sultanposts.databinding.ItemUserBinding
 import com.example.sultanposts.domain.enitity.User
 
 class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(UserDiffCallBack) {
+    private var onUserClickCallBack: ((userName: String, userId: Int) -> Unit)? = null
+
+
+    fun onUserClickListener(callback: ((username: String, userId: Int) -> Unit)?) {
+        onUserClickCallBack = callback
+    }
 
     inner class UserViewHolder(val binding: ItemUserBinding) : ViewHolder(binding.root) {
-        fun bind(user: User){
-            binding.tvName.text = itemView.resources.getString(R.string.label_username,user.name)
-            binding.tvEmail.text = itemView.resources.getString(R.string.label_email,user.email)
-            binding.tvCity.text = itemView.resources.getString(R.string.label_city,user.address.city)
-            binding.tvCompanyName.text = itemView.resources.getString(R.string.label_company,user.company.name)
-            binding.tvZip.text = itemView.resources.getString(R.string.label_zip,user.address.zipcode)
+        fun bind(user: User) {
+            binding.tvName.text = itemView.resources.getString(R.string.label_username, user.name)
+            binding.tvEmail.text = itemView.resources.getString(R.string.label_email, user.email)
+            binding.tvCity.text = itemView.resources.getString(R.string.label_city, user.address.city)
+            binding.tvCompanyName.text = itemView.resources.getString(R.string.label_company, user.company.name)
+            binding.tvZip.text = itemView.resources.getString(R.string.label_zip, user.address.zipcode)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UserViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentUser = currentList[position]
-        if(currentUser != null){
+        if (currentUser != null) {
             holder.bind(currentUser)
         }
-        holder.binding
+        holder.binding.itemLayout.setOnClickListener {
+            onUserClickCallBack?.invoke(currentUser.name, currentUser.id)
+        }
     }
 }
