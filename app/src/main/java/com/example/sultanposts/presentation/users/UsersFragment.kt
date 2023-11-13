@@ -1,6 +1,8 @@
 package com.example.sultanposts.presentation.users
 
+import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.sultanposts.core.BaseFragment
 import com.example.sultanposts.databinding.FragmentUsersBinding
 import com.example.sultanposts.presentation.users.adapter.UserAdapter
@@ -24,13 +26,31 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>() {
 
     override fun initListeners() {
         super.initListeners()
+        userAdapter.onUserClickListener { username, userId ->
+            val action = UsersFragmentDirections.actionUsersFragmentToPostsFragment(username,userId)
+            findNavController().navigate(action)
+        }
     }
 
-    override fun observeData() {
+    override fun observeData()=with(binding){
         super.observeData()
         userViewModel.users.observe(viewLifecycleOwner){
             userAdapter.submitList(it)
         }
+        userViewModel.isLoading.observe(viewLifecycleOwner){
+            if(it) showShimmer()
+            else stopShimmer()
+        }
+
+
+    }
+
+    private fun showShimmer(){
+        binding.shimmerLayout.startShimmer()
+    }
+    private fun stopShimmer(){
+        binding.shimmerLayout.stopShimmer()
+        binding.shimmerLayout.visibility = View.GONE
     }
 
 }
