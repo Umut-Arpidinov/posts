@@ -41,6 +41,9 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>() {
             if(it) showShimmer()
             else stopShimmer()
         }
+        userViewModel.viewModelError.observe(viewLifecycleOwner){
+            it.printStackTrace()
+        }
 
 
     }

@@ -12,7 +12,8 @@ abstract class BaseViewModel : ViewModel() {
 
     private var compositeDisposable: CompositeDisposable = CompositeDisposable()
     var isLoading: MutableLiveData<Boolean> = MutableLiveData()
-    protected var isError: MutableLiveData<Boolean> = MutableLiveData()
+    protected var isError: MutableLiveData<Throwable> = MutableLiveData()
+    var viewModelError: MutableLiveData<Throwable> = MutableLiveData()
 
     protected fun <T : Any> makeRequest(
         single: Single<T>,
@@ -25,14 +26,17 @@ abstract class BaseViewModel : ViewModel() {
             .doOnSubscribe {
                 isLoading.value = true
             }
-            .doOnTerminate{
+            .doOnTerminate {
                 isLoading.value = false
             }
+            .doOnError {
+                viewModelError.value = it
+            }
             .subscribe(
-                {result -> onSuccess(result)},
-                {error -> onError(error)},
+                { result -> onSuccess(result) },
+                { error -> onError(error) },
 
-            )
+                )
         compositeDisposable.add(disposable)
     }
 
