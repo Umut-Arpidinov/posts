@@ -1,20 +1,28 @@
 package com.example.sultanposts.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavHost
+import androidx.navigation.ui.setupWithNavController
 import com.example.sultanposts.R
+import com.example.sultanposts.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.BuildConfig
 import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private lateinit var bindingActivity: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        bindingActivity = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bindingActivity.root)
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragment) as NavHost
+        val navController = navHostFragment.navController
+        bindingActivity.bottomNav.setupWithNavController(navController)
 
-
-        if(BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
 
