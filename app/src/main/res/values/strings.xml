@@ -18,4 +18,14 @@
     <string name="register">Регистрация</string>
     <string name="name">Имя</string>
     <string name="lastname">Фамилия</string>
+    <string name="main">Главная</string>
+    <string name="tickets">Билеты</string>
+    <string name="profile">Профиль</string>
+    <string name="imagedescription">ImageDescription</string>
+    <string name="book">Забронировать очередь</string>
+    <string name="label_branches">Отделения</string>
+    <string name="random_address">Г. Бишкек ул. Анкара, 178</string>
+    <string name="status_closed">Закрыто</string>
+    <string name="status_open">Открыто</string>
+    <string name="service_random">Обслуживание физических лиц</string>
 </resources>

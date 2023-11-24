@@ -1,6 +1,7 @@
 package com.example.sultanposts.presentation
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavHost
 import androidx.navigation.ui.setupWithNavController
@@ -21,6 +22,12 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.fragment) as NavHost
         val navController = navHostFragment.navController
         bindingActivity.bottomNav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            bindingActivity.bottomNav.visibility = View.VISIBLE
+        }
+
+
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
