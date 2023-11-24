@@ -12,8 +12,10 @@
     <string name="label_users">Users</string>
     <string name="lorem_ipsum">sunt aut facere repellat provident occaecati excepturi sdfsdfsdfs sdfsdf afdadf afdadf afdadsf adfa adfafda afdadf</string>
     <string name="lorem_full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-    <string name="main">Главная</string>
-    <string name="history">История</string>
-    <string name="profile">Профиль</string>
-    <string name="tickets">Билеты</string>
+    <string name="authorization">Авторизация</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="register">Регистрация</string>
+    <string name="name">Имя</string>
+    <string name="lastname">Фамилия</string>
 </resources>
