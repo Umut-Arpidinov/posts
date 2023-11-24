@@ -21,6 +21,9 @@
     <string name="main">Главная</string>
     <string name="tickets">Билеты</string>
     <string name="profile">Профиль</string>
+    <string name="success">success</string>
+    <string name="fill_all_fields">Заполните все поля</string>
+    <string name="error_text_login">Логин или пароль неверный. Попробуйте еще раз</string>
     <string name="imagedescription">ImageDescription</string>
     <string name="book">Забронировать очередь</string>
     <string name="label_branches">Отделения</string>

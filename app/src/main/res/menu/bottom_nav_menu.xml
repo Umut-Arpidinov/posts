@@ -9,7 +9,7 @@
         />
     <item
         android:id="@+id/ticketsFragment"
-        android:icon="@drawable/ic_history"
+        android:icon="@drawable/ic_event"
         android:title="@string/tickets"
         />
     <item

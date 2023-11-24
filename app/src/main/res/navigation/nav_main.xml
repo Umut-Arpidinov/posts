@@ -29,4 +29,10 @@
         android:name="com.example.sultanposts.presentation.branch.ChooseBranchFragment"
         android:label="fragment_choose_branch"
         tools:layout="@layout/fragment_choose_branch" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.sultanposts.presentation.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+
 </navigation>
