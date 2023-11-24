@@ -4,6 +4,7 @@ import androidx.navigation.fragment.findNavController
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.sultanposts.R
 import com.example.sultanposts.core.BaseFragment
@@ -13,19 +14,22 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>(){
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     @Inject
     lateinit var preference: Preference
 
     override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        checkId()
-
     override fun initViews() {
         super.initViews()
+        checkId()
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun initListeners() {
@@ -41,20 +45,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(){
         super.observeData()
     }
 
-    private fun navigateHome(){
+    private fun navigateHome() {
         findNavController().popBackStack()
     }
 
-        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                requireActivity().finish()
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-    }
 
-    private fun checkId(){
-        if(preference.id == null){
+    private fun checkId() {
+        if (preference.id == null) {
             findNavController().navigate(R.id.loginFragment)
         }
     }
