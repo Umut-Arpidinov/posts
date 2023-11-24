@@ -1,5 +1,7 @@
 package com.example.sultanposts.data.datasource.remote
 
+import com.example.sultanposts.data.datasource.remote.model.LoginRequest
+import com.example.sultanposts.data.datasource.remote.model.LoginResponse
 import com.example.sultanposts.data.datasource.remote.model.PostResponse
 import com.example.sultanposts.data.datasource.remote.model.UserResponse
 import io.reactivex.rxjava3.core.Single
@@ -16,4 +18,5 @@ interface UserRemoteDataSource {
     fun getPostsByUserId(userId: Int): Single<List<PostResponse>>
 
     fun fetchData(): Call<PostResponse>
+    fun login(loginRequest: LoginRequest): Single<LoginResponse>
 }

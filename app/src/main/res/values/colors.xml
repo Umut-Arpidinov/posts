@@ -6,5 +6,10 @@
     <color name="blue">#0268EC</color>
     <color name="gray">#8E8E8E</color>
     <color name="red">#EB5757</color>
+    <color name="white_2">#F2F2F6</color>
+    <color name="white_3">#F9F9F9</color>
+    <color name="transparent">#00000000</color>
+    <color name="blue_2">#ECF3F0</color>
+    <color name="black_2">#1C2121</color>
 
 </resources>

@@ -18,4 +18,11 @@
     <string name="register">Регистрация</string>
     <string name="name">Имя</string>
     <string name="lastname">Фамилия</string>
+    <string name="main">Главная</string>
+    <string name="tickets">Билеты</string>
+    <string name="profile">Профиль</string>
+    <string name="success">success</string>
+    <string name="fill_all_fields">Заполните все поля</string>
+    <string name="error_text_login">Логин или пароль неверный. Попробуйте еще раз</string>
+
 </resources>

@@ -1,11 +1,14 @@
 package com.example.sultanposts.data.datasource.remote
 
+import com.example.sultanposts.data.datasource.remote.model.LoginRequest
+import com.example.sultanposts.data.datasource.remote.model.LoginResponse
 import com.example.sultanposts.data.datasource.remote.model.PostResponse
 import com.example.sultanposts.data.datasource.remote.model.UserResponse
 import com.example.sultanposts.data.datasource.remote.service.UserApiService
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Call
 import javax.inject.Inject
+import kotlin.math.log
 
 class UserRemoteDataSourceImpl @Inject constructor(
     private val userApiService: UserApiService
@@ -29,6 +32,10 @@ class UserRemoteDataSourceImpl @Inject constructor(
 
     override fun fetchData(): Call<PostResponse> {
         return userApiService.fetchData()
+    }
+
+    override fun login(loginRequest: LoginRequest): Single<LoginResponse> {
+        return userApiService.login(loginRequest)
     }
 
 }
