@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.sultanposts.presentation.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_chooseBranchFragment"
             app:destination="@id/chooseBranchFragment" />
@@ -28,11 +28,38 @@
         android:id="@+id/chooseBranchFragment"
         android:name="com.example.sultanposts.presentation.branch.ChooseBranchFragment"
         android:label="fragment_choose_branch"
-        tools:layout="@layout/fragment_choose_branch" />
+        tools:layout="@layout/fragment_choose_branch">
+        <action
+            android:id="@+id/action_chooseBranchFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.sultanposts.presentation.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.example.sultanposts.presentation.branch.services.ServicesFragment"
+        android:label="ServicesFragment"
+        tools:layout="@layout/services_fragment">
+        <argument
+            android:name="branch"
+            app:argType="com.example.sultanposts.domain.enitity.Branch"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_servicesFragment_to_serviceDetailedFragment"
+            app:destination="@id/serviceDetailedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceDetailedFragment"
+        android:name="com.example.sultanposts.presentation.branch.service_detailed.ServiceDetailedFragment"
+        android:label="ServiceDetailedFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/selectDateFragment"
+        android:name="com.example.sultanposts.presentation.selectDate.SelectDateFragment"
+        android:label="fragment_select_date"
+        tools:layout="@layout/fragment_select_date" />
 
 </navigation>

@@ -4,6 +4,8 @@ import com.example.sultanposts.data.datasource.remote.model.LoginRequest
 import com.example.sultanposts.data.datasource.remote.model.LoginResponse
 import com.example.sultanposts.data.datasource.remote.model.PostResponse
 import com.example.sultanposts.data.datasource.remote.model.UserResponse
+import com.example.sultanposts.domain.enitity.Branch
+import com.example.sultanposts.domain.enitity.service.ServiceX
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Call
 import retrofit2.http.Body
@@ -32,4 +34,11 @@ interface UserApiService {
 
     @POST("user/authorization/")
     fun login(@Body loginRequest: LoginRequest) : Single<LoginResponse>
+
+    @POST("tools/queue/")
+    fun getService() : Single<List<ServiceX>>
+
+    @GET("tools/queue/")
+    fun getBranches() : Single<List<Branch>>
+
 }

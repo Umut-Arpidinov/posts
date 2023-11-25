@@ -12,9 +12,9 @@ import com.example.sultanposts.domain.enitity.Branch
 
 class BranchAdapter : ListAdapter<Branch, BranchAdapter.BranchViewHolder>(BranchDiffCallback) {
 
-    private var onBranchListener: ((id: Long) -> Unit)? = null
+    private var onBranchListener: ((branch: Branch) -> Unit)? = null
 
-    fun setOnBranchClickListener(listener: (id: Long) -> Unit) {
+    fun setOnBranchClickListener(listener: (branch: Branch) -> Unit) {
         onBranchListener = listener
     }
 
@@ -40,7 +40,7 @@ class BranchAdapter : ListAdapter<Branch, BranchAdapter.BranchViewHolder>(Branch
         val currentBranch = currentList[position]
         holder.bind(currentBranch)
         holder.view.setOnClickListener{
-            onBranchListener?.invoke(currentBranch.id)
+            onBranchListener?.invoke(currentBranch)
         }
 
     }

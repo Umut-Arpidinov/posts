@@ -38,7 +38,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.btnApply.setOnClickListener {
             findNavController().navigate(action)
         }
-
     }
 
     override fun observeData() {

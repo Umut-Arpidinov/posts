@@ -4,8 +4,10 @@ import com.example.sultanposts.data.datasource.mappers.toDomain
 import com.example.sultanposts.data.datasource.remote.UserRemoteDataSource
 import com.example.sultanposts.data.datasource.remote.model.LoginRequest
 import com.example.sultanposts.data.datasource.remote.model.LoginResponse
+import com.example.sultanposts.domain.enitity.Branch
 import com.example.sultanposts.domain.enitity.Post
 import com.example.sultanposts.domain.enitity.User
+import com.example.sultanposts.domain.enitity.service.ServiceX
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Call
 import javax.inject.Inject
@@ -33,5 +35,13 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun login(loginRequest: LoginRequest): Single<LoginResponse> {
         return userRemoteDataSource.login(loginRequest)
+    }
+
+    override fun fetchService(): Single<List<ServiceX>> {
+        return userRemoteDataSource.getServices()
+    }
+
+    override fun fetchBranches(): Single<List<Branch>> {
+        return userRemoteDataSource.getBranches()
     }
 }
