@@ -6,14 +6,11 @@ import com.example.sultanposts.core.BaseViewModel
 import com.example.sultanposts.data.datasource.remote.model.LoginRequest
 import com.example.sultanposts.data.datasource.remote.model.LoginResponse
 import com.example.sultanposts.data.repository.UserRepositoryImpl
-import com.google.gson.Gson
-import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.HttpException
 import javax.inject.Inject
-
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(private val repositoryImpl: UserRepositoryImpl) :

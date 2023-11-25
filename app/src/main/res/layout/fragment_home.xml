@@ -19,6 +19,22 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Бронируйте очередь онлайн, \nне выходя из дома"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_slide"
+        app:layout_constraintBottom_toTopOf="@id/btn_apply"
+        />
+
+
+
     <Button
         android:id="@+id/btn_apply"
         android:layout_width="match_parent"

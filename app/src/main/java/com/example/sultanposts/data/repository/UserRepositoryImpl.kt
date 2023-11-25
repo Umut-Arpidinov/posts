@@ -2,8 +2,12 @@ package com.example.sultanposts.data.repository
 
 import com.example.sultanposts.data.datasource.mappers.toDomain
 import com.example.sultanposts.data.datasource.remote.UserRemoteDataSource
+import com.example.sultanposts.data.datasource.remote.model.BookRequest
+import com.example.sultanposts.data.datasource.remote.model.BookResponse
+import com.example.sultanposts.data.datasource.remote.model.HistoryResponse
 import com.example.sultanposts.data.datasource.remote.model.LoginRequest
 import com.example.sultanposts.data.datasource.remote.model.LoginResponse
+import com.example.sultanposts.data.datasource.remote.model.ProfileResponse
 import com.example.sultanposts.domain.enitity.Post
 import com.example.sultanposts.domain.enitity.User
 import io.reactivex.rxjava3.core.Single
@@ -33,5 +37,17 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun login(loginRequest: LoginRequest): Single<LoginResponse> {
         return userRemoteDataSource.login(loginRequest)
+    }
+
+    override fun getProfileData(id: String): Single<ProfileResponse> {
+        return userRemoteDataSource.getProfileData(id)
+    }
+
+    override fun book(bookRequest: BookRequest): Single<BookResponse> {
+        return userRemoteDataSource.book(bookRequest)
+    }
+
+    override fun getHistory(id: String): Single<List<HistoryResponse>> {
+        return userRemoteDataSource.getHistory(id)
     }
 }

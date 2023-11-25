@@ -1,10 +1,6 @@
 package com.example.sultanposts.presentation.home
 
-import androidx.navigation.fragment.findNavController
-import android.os.Bundle
-import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.sultanposts.R
 import com.example.sultanposts.core.BaseFragment
